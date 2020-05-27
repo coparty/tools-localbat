@@ -8,6 +8,19 @@
     },
 
     "backup": {
+        "from": {
+            "project1": "/path/to/project1",
+            "project2": "/path/to/project2"
+        },
+        "to": {
+            "project1": "/path/to/project1.{date}.tar.gz",
+            "project2": "/path/to/project2.{date}.tar.gz"
+        }
+    },
 
+    "download": {
+        "enable": true,
+        "remove": true,
+        "path"  : "./download"
     }
 }
