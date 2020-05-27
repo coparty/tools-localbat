@@ -38,12 +38,20 @@ def main():
     for project_name, project_path in backup["from"].items():
         print("=> {}".format(project_name))
 
+        # Replace backup.{date}.tar.gz to backup.20200528.tar.gz
         backup_date = local_time().strftime("%Y%m%d")
         to_zip_path = backup["to"][project_name].replace("{date}", backup_date)
 
+        # Get the backup directory, filename from target zip path
+        # (e.g. /path/to/backup/project.{date}.tar.gz)
+        # - directory: /path/to/backup
+        # - filename : project.{date}.tar.gz
         backup_directory = path.dirname(to_zip_path)
         backup_filename  = path.basename(to_zip_path)
 
+        # Create the backup directory,
+        # Compress the project to backup directory
+        # Sum the compressed file
         print("==> marking backup root directory")
         c.run("mkdir -p {}".format(backup_directory))
 
@@ -54,6 +62,7 @@ def main():
         command = c.run("md5sum {}".format(to_zip_path), hide=True)
         zip_md5 = command.stdout.split(" ")[0]
 
+        # Download the compressed file to local machine
         if download["enable"]:
             print("==> downloading compressed file to local directory")
 
@@ -61,6 +70,7 @@ def main():
 
             c.get(to_zip_path, download_path)
 
+            # Compare the remote zip and local zip base on md5sum value
             command = c.local("md5sum {}".format(download_path), hide=True)
             local_zip_md5 = command.stdout.split(" ")[0]
 
@@ -69,6 +79,7 @@ def main():
             else:
                 print("==> sum is not match")
 
+            # Remove the remote zip if remove is true
             if download["remove"]:
                 print("==> removing compressed file")
 
