@@ -1,0 +1,13 @@
+{
+    "ssh": {
+        "mode": "custom",
+        "host": "hostname",
+        "port": 22,
+        "user": "username",
+        "key" : "/path/to/private/key"
+    },
+
+    "backup": {
+
+    }
+}
