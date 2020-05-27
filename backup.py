@@ -50,12 +50,24 @@ def main():
         print("==> compressing project to backup directory")
         c.run("tar zcPf {} {}".format(to_zip_path, project_path))
 
+        print("==> sum the compressed file")
+        command = c.run("md5sum {}".format(to_zip_path), hide=True)
+        zip_md5 = command.stdout.split(" ")[0]
+
         if download["enable"]:
             print("==> downloading compressed file to local directory")
 
             download_path = path.realpath("{}/{}".format(download["path"], backup_filename))
 
             c.get(to_zip_path, download_path)
+
+            command = c.local("md5sum {}".format(download_path), hide=True)
+            local_zip_md5 = command.stdout.split(" ")[0]
+
+            if zip_md5 == local_zip_md5:
+                print("==> sum is match")
+            else:
+                print("==> sum is not match")
 
             if download["remove"]:
                 print("==> removing compressed file")
