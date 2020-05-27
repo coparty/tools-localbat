@@ -6,4 +6,4 @@ all:
 	@echo
 
 backup:
-	@./venv3/bin/python3 index.py
+	@./venv3/bin/python3 backup.py
