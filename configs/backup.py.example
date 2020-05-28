@@ -1,6 +1,6 @@
 # Backup
-# from: remote project directory
-# to  : which directory store the compressed project
+# - from: remote project directory
+# - to  : which directory store the compressed project
 BACKUP = {
     "from": {
         "project1": "/path/to/project1",
