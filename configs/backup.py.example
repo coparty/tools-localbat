@@ -1,15 +1,3 @@
-# SSH connection
-# mode:
-# - custom    : setup your custom config
-# - ssh_config: load the config from local ssh_config file
-SSH = {
-    "mode": "custom",
-    "host": "hostname",
-    "port": 22,
-    "user": "username",
-    "key" : "/path/to/private/key"
-}
-
 # Backup
 # from: remote project directory
 # to  : which directory store the compressed project

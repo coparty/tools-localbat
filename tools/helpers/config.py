@@ -1,9 +1,9 @@
 import types
 from os import path
 
-def from_backup() -> list:
+def from_file(file_path) -> list:
     config_data = {}
-    config_path = path.abspath(path.join(path.dirname(__file__), "../../configs/backup.py"))
+    config_path = path.abspath(path.join(path.dirname(__file__), file_path))
 
     module = types.ModuleType("config")
     module.__file__ = config_path
@@ -20,8 +20,17 @@ def from_backup() -> list:
         if key.isupper():
             config_data[key] = getattr(module, key)
 
+    return config_data
+
+def from_default() -> list:
+    return from_file("../../configs/default.py")
+
+def from_backup() -> list:
+    config = from_default()
+    config.update(from_file("../../configs/backup.py"))
+
     return [
-        config_data["SSH"],
-        config_data["BACKUP"],
-        config_data["DOWNLOAD"]
+        config["SSH"],
+        config["BACKUP"],
+        config["DOWNLOAD"]
     ]
