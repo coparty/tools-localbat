@@ -1,3 +1,11 @@
+*~
+*.pyc
+*.pyo
+*.pyt
+*.pytc
+*.egg
+.DS_Store
+
 /venv3
 /download/*.tar.gz
 

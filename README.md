@@ -30,15 +30,23 @@ Open and edit the `config.json`
 
 ## Usage
 
-Run in the activated virtual environment
+### Activated virtual environment
 
-    python3 backup.py
+List available tasks
 
-Run in the deactivated virtual environment
+    fab -l
 
-    ./venv3/bin/python3 backup.py
+Backup the remote projects to local download directory base on configuration file
 
-Or, you can simply using the following command
+    fab backup
+
+### Deactivated virtual development
+
+If you don't want to activate virtualenv, just want to quickly run the command, you can do it like:
+
+    ./venv3/bin/fab backup
+
+Or, you can simply using the following command defined in Makefile
 
     make backup
 
