@@ -20,13 +20,15 @@ Install the required packages
 
     pip install -r requirements.txt
 
-Create the `config.json`
+Create the default ssh and backup config
 
-    cp config.json.example config.json
+    cp configs/default.py.example configs/default.py
+    cp configs/backup.py.example configs/backup.py
 
-Open and edit the `config.json`
+Open and edit those configs
 
-    vim config.json
+    vim configs/default.py
+    vim configs/backup.py
 
 ## Usage
 
