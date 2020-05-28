@@ -75,3 +75,5 @@ def run_backup():
             remote_zip_path=to_zip_path,
             remote_zip_md5=zip_md5
         )
+
+    print("Finished!")
