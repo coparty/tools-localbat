@@ -1,0 +1,35 @@
+# SSH connection
+# mode:
+# - custom    : setup your custom config
+# - ssh_config: load the config from local ssh_config file
+SSH = {
+    "mode": "custom",
+    "host": "hostname",
+    "port": 22,
+    "user": "username",
+    "key" : "/path/to/private/key"
+}
+
+# Backup
+# from: remote project directory
+# to  : which directory store the compressed project
+BACKUP = {
+    "from": {
+        "project1": "/path/to/project1",
+        "project2": "/path/to/project2"
+    },
+    "to": {
+        "project1": "/path/to/project1.{date}.tar.gz",
+        "project2": "/path/to/project2.{date}.tar.gz"
+    }
+}
+
+# Download
+# - enable: download the compressed file to local if enabled
+# - remove: remove the compressed file when compressed file downloaded
+# - path  : which local path store the download file
+DOWNLOAD = {
+    "enable": True,
+    "remove": True,
+    "path"  : "./download"
+}

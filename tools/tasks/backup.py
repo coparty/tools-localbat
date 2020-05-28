@@ -32,7 +32,7 @@ def run_backup():
     # Read the config from config file
     print("Reading config file ...")
 
-    [ssh, backup, download] = config.from_file()
+    [ssh, backup, download] = config.from_backup()
 
     # Try to connect remote server
     print("Start connecting ...")

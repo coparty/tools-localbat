@@ -7,5 +7,5 @@
 .DS_Store
 
 /venv3
-/configs/*.json
+/configs/*.py
 /download/*.tar.gz
