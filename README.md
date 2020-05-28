@@ -1,6 +1,6 @@
-# Tools LocalBak
+# Tools LocalBat
 
-A tool for backup the projects from the remote server to the local directory
+A tool for managing the projects from the local to the remote server
 
 ## Installation
 
