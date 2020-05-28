@@ -76,4 +76,5 @@ def run_backup():
             remote_zip_md5=zip_md5
         )
 
+    # Show finish message when all is done
     print("Finished!")
