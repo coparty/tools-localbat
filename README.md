@@ -6,52 +6,62 @@ A tool for managing the projects from the local to the remote server
 
 Create the virtual environment first
 
-    python3 -m venv venv3
+	python3 -m venv venv3
 
 Activate the virtual environment
 
-    source venv3/bin/activate
+	source venv3/bin/activate
 
 Upgrade the pip tools
 
-    pip install -U pip
+	pip install -U pip
 
 Install the required packages
 
-    pip install -r requirements.txt
+	pip install -r requirements.txt
 
 Create the default ssh and backup config
 
-    cp configs/default.py.example configs/default.py
-    cp configs/backup.py.example configs/backup.py
+   cp configs/default.py.example configs/default.py
+   cp configs/backup.py.example configs/backup.py
+	cp configs/backup.py.example configs/pull.py
 
 Open and edit those configs
 
-    vim configs/default.py
-    vim configs/backup.py
+	vim configs/default.py
+	vim configs/backup.py
 
 ## Usage
 
-### Activated virtual environment
+In the virtual environment, you have `fab` command to easy fire the tasks
 
-List available tasks
+- Show the available tasks
 
-    fab -l
+		fab -l
+		
+- Backup remote projects to local directory
 
-Backup the remote projects to local download directory base on configuration file
+		fab backup
+		
+- Pull the project source from git repository
 
-    fab backup
+	> The alias name was defined in the `pull` config file
 
-### Deactivated virtual development
+		fab pull project=<alias|all>
 
-If you don't want to activate virtualenv, just want to quickly run the command, you can do it like:
+If you don't want to activate the virtual environment, you also can do it like
 
-    ./venv3/bin/fab backup
+- Usage
 
-Or, you can simply using the following command defined in Makefile
+		./venv3/bin/fab <task> [options]
 
-    make backup
+- E.g. run the `backup` task in normal environment
 
-When all action is done, you can checkout the backup file
+    	./venv3/bin/fab backup
+    
+And, If you just want more simply, just using the `make` command
 
-    ls -la ./download
+- Like
+	
+		make backup
+		make pull project=<alias|all>
