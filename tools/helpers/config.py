@@ -34,3 +34,12 @@ def from_backup() -> list:
         config["BACKUP"],
         config["DOWNLOAD"]
     ]
+
+def from_pull() -> list:
+    config = from_default()
+    config.update(from_file("../../configs/pull.py"))
+
+    return [
+        config["SSH"],
+        config["PULL"]
+    ]

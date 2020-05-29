@@ -1,0 +1,6 @@
+# Pull
+# - project1: it is a alias name for fab project arguments
+PULL={
+    "project1": "/path/to/project/repo",
+    "project2": "/path/to/project/repo"
+}
