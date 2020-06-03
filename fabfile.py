@@ -3,6 +3,7 @@
 from fabric import task
 from tools.tasks.backup import run_backup
 from tools.tasks.pull import run_pull
+from tools.tasks.restart import run_restart
 
 @task
 def backup(c):
@@ -11,3 +12,7 @@ def backup(c):
 @task
 def pull(c, project):
     run_pull(project)
+
+@task
+def restart(c, project):
+    run_restart(project)
