@@ -30,6 +30,7 @@ Open and edit those configs
 
     vim configs/default.py
     vim configs/backup.py
+    vim configs/pull.py
 
 ## Usage
 
