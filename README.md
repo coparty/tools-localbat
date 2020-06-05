@@ -24,7 +24,7 @@ Create the default ssh and backup config
 
     cp configs/default.py.example configs/default.py
     cp configs/backup.py.example configs/backup.py
-    cp configs/backup.py.example configs/pull.py
+    cp configs/pull.py.example configs/pull.py
 
 Open and edit those configs
 
